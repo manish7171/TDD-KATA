@@ -9,23 +9,14 @@ class Rover
     private $coordinate;
     private $direction ;
     private $grid;
-    private $endOfGridY = false;
-    private $endOfGridX = false;
 
-    private $obstacle;
-    /**
-     * @var bool
-     */
-    private $obstacleFound = false;
 
     public function __construct(Grid $grid)
     {
         $this->grid = $grid;
-        $this->obstacle = new Obstacle(2,2);
         $this->direction = new North();
         $this->coordinate = new Coordinate(0,0);
     }
-
 
     public function currentPosition():string
     {
@@ -62,51 +53,5 @@ class Rover
 
     }
 
-    private function checkForObstacle(): void
-    {
-        if($this->x === $this->obstacle->x && $this->y === $this->obstacle->y )
-        {
-            $this->obstacleFound = true;
-        }
-        else
-        {
-            $this->obstacleFound = false;
-        }
-
-
-    }
-
-/*    private function rotateRight()
-    {
-        if( $this->direction === "N") {
-            return "E";
-        }
-        if( $this->direction === "E") {
-            return "S";
-        }
-        if( $this->direction === "W") {
-            return "N";
-        }
-        if( $this->direction === "S") {
-            return "W";
-        }
-
-    }
-
-    private function rotateLeft()
-    {
-        if( $this->direction === "N") {
-            return "W";
-        }
-        if( $this->direction === "W") {
-            return "S";
-        }
-        if( $this->direction === "S") {
-            return "E";
-        }
-        if( $this->direction === "E") {
-            return "N";
-        }
-    }*/
 
 }
