@@ -1,7 +1,7 @@
 <?php
 
-use App\Models\Coordinate;
-use App\Models\Grid;
+use App\Models\Rover\Coordinate;
+use App\Models\Rover\Grid;
 use PHPUnit\Framework\TestCase as TestCase;
 /*
  * Develop an API that moves a rover around on a grid
@@ -24,7 +24,7 @@ use PHPUnit\Framework\TestCase as TestCase;
  * 8. The grid may have obstacles. If a given sequence of commands encounters an obstacle, the rover moves up to the last possible point and reports the e.g O:2:2:N
  *
  * */
-use App\Models\Rover;
+use App\Models\Rover\Rover;
 
 class RoverTest extends TestCase
 {

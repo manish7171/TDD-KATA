@@ -1,5 +1,5 @@
-<?php 
-namespace App\Models;
+<?php
+namespace App\Models\Rover;
 
 class Rover
 {

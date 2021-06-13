@@ -1,22 +1,22 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Rover;
 
-class West extends Direction
+class South extends Direction
 {
 
     public function value()
     {
-        return "W";
+        return "S";
     }
 
     public function right()
     {
-        return new North();
+        return new West();
     }
 
     public function left()
     {
-        return new South();
+        return new East();
     }
 }

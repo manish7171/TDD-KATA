@@ -1,6 +1,5 @@
 <?php
-
-namespace App\Models;
+namespace App\Models\Rover;
 
 class East extends Direction
 {
