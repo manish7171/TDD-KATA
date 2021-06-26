@@ -14,32 +14,31 @@ for example “” or “1” or “1,2” as inputs.
 
 (for an empty string it will return 0)
  * */
-    public function commandTurnRightParameters() {
+    public function addParameters() {
         // test with this values
         return array(
             array('', 0),
             array('1', 1),
+            array('1,', 1),
+            array("1\n", 1),
+            array("1\n,", 1),
+            array("1,\n", 1),
+            array("1,1,\n", 2),
             array('1,1', 2),
             array('11,11', 22),
+            array("11\n11", 22),
             // ...
         );
     }
     /**
-     * @dataProvider commandTurnRightParameters
+     * @dataProvider addParameters
      * @param $input
      * @param $expectedResult
      */
-    public function testShouldReturnZeroForEmptyString($input, $expectedResult)
+    public function testShouldReturnTotalSum($input, $expectedResult)
     {
         $stringCalculator = new StringCalculator();
         self::assertEquals($expectedResult , $stringCalculator->add($input));
-    }
-
-    public function testShouldThrowInvalidArgumentException()
-    {
-        $stringCalculator = new StringCalculator();
-        $stringCalculator->add('1,');
-        $this->expectException(\Exception::class);
     }
 
 }
