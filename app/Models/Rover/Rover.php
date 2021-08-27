@@ -13,9 +13,9 @@ class Rover
 
     public function __construct(Grid $grid)
     {
-        $this->grid = $grid;
-        $this->direction = new North();
-        $this->coordinate = new Coordinate(0,0);
+        $this->grid        =  $grid;  
+        $this->direction   =  new North();
+        $this->coordinate  =  new Coordinate(0,0);
     }
 
     public function currentPosition():string

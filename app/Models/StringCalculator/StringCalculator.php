@@ -16,17 +16,22 @@ class StringCalculator
 
     public function add($input)
     {
-        if($input == '')
-        {
+        if($input == '') {
             return 0;
         }
 
-        $inputs = ( explode( ',', $input ) );
+        //$inputs = ( explode( ',', $input ) );
 
+        $inputs = preg_split('/\r\n|\r|\n|\,/', $input);
+        
         $result = 0;
-
+        
         foreach ( $inputs as $num )
         {
+            if( $num == "") {
+                $num = 0; 
+            }
+
             $result += $num;
         }
 
