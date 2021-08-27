@@ -3,7 +3,7 @@ namespace App;
 
 class BinarySearch
 {
-	public function search($arr, $value)
+/*	public function search($arr, $value) //recursion
 	{
 		sort($arr);
 
@@ -32,34 +32,42 @@ class BinarySearch
 			return $this->search($newArr, $value);
 		}
 		return false;
-	}
+	}*/
 
-	/*public function search($arr, $value)
-	{
-		sort($arr);
-		$left = 0;
-		$right = count($arr)-1;
-		$result = false;
+   /* public function search($arr,$value) // while loop
+    {
+    	sort($arr);
+    	$left = 0;
+    	$right = (count($arr)-1);
+    	$return = false;
+    	while( $left <= $right && !$return) {
+    		$mid = int (round($left + $right)/2);
+    		if ($arr[$mid] == $value) {
+    			$return = true;
+    		} elseif ($arr[$mid] < $value) {
+    			$left = $mid + 1;
+    		} else {
+				$right = $mid + 1;
+    		}
+    	}
 
-		while($left <= $right && !$result) {
-			$mid = (int) round(($left + $right)/2);
-			//die();
-			if($arr[$mid] == $value) {
-				$result = true;
-                break;
-			} elseif($arr[$mid] < $value) {
-				$left = $mid + 1;
-			} else {
-				$right = $mid - 1;
-			}
-		}
-
-		return $result;
+    	return $return;
     }*/
+
+    public function search($arr, $value) { //linear search
+    	$result = false;
+    	for($i = 0 ;$i < count($arr); $i++) {
+    		if($arr[$i] == $value) {
+    			$result = true;
+    			break;
+    		}
+    	}
+    	return $result;
+    }
 
     private function dd($value)
     {
-    	if(is_array($value)) {
+    	if ( is_array($value) ) {
     		var_dump($value);
     		die;
     	}
