@@ -13,27 +13,16 @@ class BinarySearchTreeTest extends TestCase
 	{
 		$bst = new BinarySearchTree();
 
-		$node1 = new Node(8);
-		$node2 = new Node(3);
-		$node3 = new Node(10);
-		$node4 = new Node(1);
-		$node5 = new Node(6);
-		$node6 = new Node(14);
-		$node7 = new Node(4);
-		$node8 = new Node(7);
-		$node9 = new Node(3);
-		$node10 = new Node(2);
-
-		$bst->insert($node1);
-		$bst->insert($node2);
-		$bst->insert($node3);
-		$bst->insert($node4);
-		$bst->insert($node5);
-		$bst->insert($node6);
-		$bst->insert($node7);
-		$bst->insert($node8);
-		$bst->insert($node9);
-		$bst->insert($node10);
+		$bst->insert(1);
+		$bst->insert(2);
+		$bst->insert(3);
+		$bst->insert(4);
+		$bst->insert(5);
+		$bst->insert(5);
+		$bst->insert(6);
+		$bst->insert(6);
+		$bst->insert(7);
+		$bst->insert(8);
 
 		print_r($bst->root);
 	}
