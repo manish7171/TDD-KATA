@@ -34,7 +34,7 @@ class BinarySearch
 		return false;
 	}*/
 
-   /* public function search($arr,$value) // while loop
+    public function search($arr,$value) // while loop
     {
     	sort($arr);
     	$left = 0;
@@ -52,9 +52,9 @@ class BinarySearch
     	}
 
     	return $return;
-    }*/
+    }
 
-    public function search($arr, $value) { //linear search
+    /*public function search($arr, $value) { //linear search
     	$result = false;
     	for($i = 0 ;$i < count($arr); $i++) {
     		if($arr[$i] == $value) {
@@ -63,7 +63,7 @@ class BinarySearch
     		}
     	}
     	return $result;
-    }
+    }*/
 
     private function dd($value)
     {
