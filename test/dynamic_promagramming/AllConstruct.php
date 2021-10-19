@@ -22,31 +22,38 @@ class AllConstruct extends TestCase
      * */
     public function test_should_pass()
     {
-        var_dump($this->canConst('abcdef',['ab', 'abc', 'cd', 'def', 'abcd', 'ef', 'c']));
+        print_r($this->canConst('abcdef',['ab', 'abc', 'cd', 'def', 'abcd', 'ef', 'c']));
 //        var_dump($this->canConst('purple',['purp', 'p', 'ur', 'le', 'purpl']));
         //var_dump($this->canConst('eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',['e', 'eeeee', 'eeeeeeeeeee', 'eeeeeeeeeeeeeeee', 'eeeeeeeeeeeeeeeeeee']));
     }
 
     public function canConst($target, $wordBank, &$memo=[])
     {
-        //if(isset($memo[$target])) return $memo[$target];
+        if(isset($memo[$target])) return $memo[$target];
 
         if ($target === '') {
-            return true; 
+            return []; 
         }
+
         $result = []; 
 
         foreach ($wordBank as $word) {
-            if (strpos($target, $word) === 0) {
-                    $return = $this->canConst(substr($target, strlen($word)), $wordBank,$memo);
-                    $result[] = array_map(function($r) use ($word) {
-                        return [$word,$r];
-                    },[$return]);
-                    //$memo[$target] = array_merge([$word],[$return]);                    
+            if ( strpos($target, $word) === 0 ) {
+                $suffix =  substr($target, strlen($word));
+                $suffixWay = $this->canConst( $suffix, $wordBank, $memo );
+                $result1[] = [$word];
+                $result1[] = $suffixWay;
+                $result[] = array_merge(...$result1);
+                    //$result[] = array_map(function($r) use ($word) {
+                     //   return [$word,$r];
+                    //},[$return]);
+                    //array_push($return, [$word]); 
+                    //$result = array_push([$return], [$word]);//$memo[$target];                   
+                    
             }
         }
 
-        //$memo[$target] = $result;
+        $memo[$target] = $result;
         return $result; 
     }
 }
